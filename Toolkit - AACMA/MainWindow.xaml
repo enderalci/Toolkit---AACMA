@@ -1,0 +1,22 @@
+﻿<Window x:Class="Toolkit___AACMA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Toolkit___AACMA"
+        mc:Ignorable="d"
+        Title="AACMA Toolkit" Height="350" Width="850">
+    <Grid x:Name="DefaultGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="txtOutput" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="214,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="576" Height="260"/>
+        <Button x:Name="btnVersion" Content="Check Version" Grid.ColumnSpan="2" Margin="0,10,622,250" Click="btnVersion_Click"/>
+        <Button x:Name="btnAgentErrorCheck" Content="Check Agent Error" Grid.ColumnSpan="2" Margin="0,35,622,225" Click="btnAgentErrorCheck_Click"/>
+        <Button x:Name="btnConfigList" Content="Show Agent Config" Grid.ColumnSpan="2" Margin="0,60,622,200" Click="btnConfigList_Click"/>
+        <Button x:Name="btnAgentMode" Content="Show Agent Mode" Grid.ColumnSpan="2" Margin="0,85,622,175" Click="btnAgentMode_Click"/>
+        <Button x:Name="btnExportLogs" Content="Export Logs" Grid.ColumnSpan="2" Margin="0,110,622,150" Click="btnExportLogs_Click">
+        </Button>
+    </Grid>
+</Window>

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using Path = System.IO.Path;
 
 
 
@@ -92,10 +96,42 @@ namespace Toolkit___AACMA {
 
         private void btnExportLogs_Click(object sender, RoutedEventArgs e)
         {
+
             Console.WriteLine("Enter path, ex: c:\temp\azcmagentlogs");
             string ExportLogsPath = Console.ReadLine();
             ///MessageBox.Show("Azcmagent logs --full --output " + "\"" + ExportLogsPath + "\"");
-            txtOutput.Text = RunAzCmAgentCommand("logs --full --output" + "\"" +ExportLogsPath + "\"");
+            txtOutput.Text = RunAzCmAgentCommand("logs --full --output" + "\"" + ExportLogsPath + "\"");
         }
+
+        private void btnUpdateAACMA_Click(object sender, RoutedEventArgs e)
+        {
+                string installerUrl = "https://aka.ms/AzureConnectedMachineAgent";
+                string tempPath = Path.GetTempPath();
+                string installerPath = Path.Combine(tempPath, "AzureConnectedMachineAgent.msi");
+
+                try
+                {
+                    using (WebClient client = new WebClient())
+                    {
+                        MessageBox.Show("Downloading Azure Connected Machine Agent...");
+                        client.DownloadFile(installerUrl, installerPath);
+                    }
+
+                    Process installer = new Process();
+                    installer.StartInfo.FileName = "msiexec.exe";
+                    installer.StartInfo.Arguments = $"/i \"{installerPath}\" /quiet /qn /norestart";
+                    installer.StartInfo.Verb = "runas"; // Admin rights
+                    installer.StartInfo.UseShellExecute = true;
+                    installer.Start();
+
+                    installer.WaitForExit();
+
+                    MessageBox.Show("Installation completed.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
     }
 }

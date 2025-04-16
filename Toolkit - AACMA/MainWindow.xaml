@@ -16,7 +16,7 @@
         <Button x:Name="btnAgentErrorCheck" Content="Check Agent Error" Grid.ColumnSpan="2" Margin="0,35,622,225" Click="btnAgentErrorCheck_Click"/>
         <Button x:Name="btnConfigList" Content="Show Agent Config" Grid.ColumnSpan="2" Margin="0,60,622,200" Click="btnConfigList_Click"/>
         <Button x:Name="btnAgentMode" Content="Show Agent Mode" Grid.ColumnSpan="2" Margin="0,85,622,175" Click="btnAgentMode_Click"/>
-        <Button x:Name="btnExportLogs" Content="Export Logs" Grid.ColumnSpan="2" Margin="0,110,622,150" Click="btnExportLogs_Click">
-        </Button>
+        <Button x:Name="btnExportLogs" Content="Export Logs" Grid.ColumnSpan="2" Margin="0,110,622,150" Click="btnExportLogs_Click"/>
+        <Button x:Name="btnUpdateAACMA" Content="Update Arc Agent" Grid.ColumnSpan="2" Margin="0,135,622,125" Click="btnUpdateAACMA_Click"/>
     </Grid>
 </Window>
